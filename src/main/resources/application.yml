@@ -1,4 +1,3 @@
-
 server:
   port: 8088
 
@@ -13,26 +12,18 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: product
-          uri: http://localhost:8085
-          predicates:
-            - Path=/product/**,,/products/**,/goods/**
-        - id: order
+        - id: gate
           uri: http://localhost:8081
           predicates:
-            - Path=/orders/**
-        - id: delivery
+            - Path=/gate/**
+        - id: employee
           uri: http://localhost:8082
           predicates:
-            - Path=/deliveries/**
-        - id: servicecenter
-          uri: http://localhost:8084
+            - Path=/employee/**
+        - id: space
+          uri: http://localhost:8083
           predicates:
-            - Path=/surveys/**
-        - id: mypage
-          uri: http://localhost:8086
-          predicates:
-            - Path=/users/**,/mypage/**
+            - Path=/space/**
         - id: oauth
           uri: http://localhost:8090
           predicates:
@@ -60,26 +51,18 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: product
-          uri: http://products:8080
+        - id: gate
+          uri: http://gate:8080
           predicates:
-            - Path=/product/**,/products/**,/goods/**
-        - id: order
-          uri: http://orders:8080
+            - Path=/gate/**
+        - id: employee
+          uri: http://order:8080
           predicates:
-            - Path=/orders/**
-        - id: delivery
-          uri: http://delivery:8080
+            - Path=/order/**
+        - id: space
+          uri: http://space:8080
           predicates:
-            - Path=/deliveries/**
-        - id: servicecenter
-          uri: http://servicecenter:8080
-          predicates:
-            - Path=/surveys/**
-        - id: mypage
-          uri: http://mypage:8080
-          predicates:
-            - Path=/users/**,/mypage/**
+            - Path=/space/**
         - id: oauth
           uri: http://oauth:8080
           predicates:
